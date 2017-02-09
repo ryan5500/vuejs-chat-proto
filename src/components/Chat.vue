@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import Bus from './Bus'
-
 export default {
   data () {
     return {
@@ -15,8 +13,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      console.log('Chat watch $route')
-      Bus.$emit('chat-selected', this.$route.params.chat_id)
+      this.$store.commit('chatSelected', this.$route.params.chat_id)
     }
   }
 }

@@ -2,7 +2,7 @@
   <div class="message-container">
     <ul>
       <li v-for="message in messages">
-          {{ content }}
+          {{ message }}
       </li>
     </ul>
   </div>
@@ -11,9 +11,9 @@
 <script>
 export default {
   name: 'message-container',
-  data () {
-    return {
-      messages: []
+  computed: {
+    messages () {
+      return this.$store.state.messages[this.$store.state.selectedChat]
     }
   }
 }
