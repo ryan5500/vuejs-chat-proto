@@ -4,23 +4,17 @@
     <router-link to="/chat/2">チャット#2リンク</router-link>
     <router-view></router-view>
     <message-container></message-container>
+    <input-field></input-field>
   </div>
 </template>
 
 <script>
-import Bus from 'components/Bus'
 import MessageContainer from 'components/MessageContainer'
+import InputField from 'components/InputField'
 
 export default {
   name: 'app',
-  created () {
-    console.log('created')
-
-    Bus.$on('chat-selected', function (chatId) {
-      console.log('chat-selected')
-    })
-  },
-  components: { MessageContainer }
+  components: { MessageContainer, InputField }
 }
 </script>
 
