@@ -1,6 +1,6 @@
 <template>
   <div class="input-field">
-    <textarea @input="updateValue($event.target.value)" @keyup.enter="sendMessage" @compositionend="compositionEnd">{{ message }}</textarea>
+    <textarea v-model="message" @keyup.enter="sendMessage" @compositionend="compositionEnd"></textarea>
   </div>
 </template>
 
@@ -17,16 +17,14 @@ export default {
     compositionEnd: function (event) {
       this.isCompositionEnd = true
     },
-    updateValue: function (value) {
-      this.message = value
-    },
     sendMessage: function (event) {
       if (this.isCompositionEnd) {
         this.isCompositionEnd = false
         return
       }
 
-      console.log('updateValue', this.message)
+      console.log('TODO: send messsage', this.message)
+
       this.message = ''
     }
   }
