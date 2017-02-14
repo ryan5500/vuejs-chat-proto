@@ -23,6 +23,7 @@ export default {
         return
       }
 
+      this.$store.commit('messageAdded', this.message)
       console.log('TODO: send messsage', this.message)
 
       this.message = ''

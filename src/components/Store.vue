@@ -15,6 +15,9 @@ const store = new Vuex.Store({
   mutations: {
     chatSelected (state, chatId) {
       state.selectedChat = chatId
+    },
+    messageAdded (state, message) {
+      state.messages[state.selectedChat].push(message)
     }
   }
 })
